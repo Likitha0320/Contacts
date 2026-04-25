@@ -5,7 +5,7 @@ This repo includes a `render.yaml` blueprint for one-click full-stack deployment
 ## Steps
 
 1. Open Render dashboard and choose **New +** -> **Blueprint**.
-2. Connect this GitHub repo: `abhikongara36-cloud/Contact`.
+2. Connect this GitHub repo: `Likitha0320/Contacts`.
 3. Render reads `render.yaml` and creates two services:
    - `contact-backend` (Spring Boot)
    - `contact-frontend` (React static)
