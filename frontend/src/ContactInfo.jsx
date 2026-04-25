@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
+
 function ContactInfo() {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/contacts")
+    axios.get(`${API_BASE_URL}/api/contacts`)
       .then(response => {
         setContacts(response.data);
         setLoading(false);

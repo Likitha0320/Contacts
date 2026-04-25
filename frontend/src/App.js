@@ -3,13 +3,15 @@ import axios from "axios";
 import ContactInfo from "./ContactInfo";
 import "./App.css";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
+
 function App() {
   const [newPhone, setNewPhone] = useState("");
   const [newEmail, setNewEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8080/api/contact", {
+    axios.post(`${API_BASE_URL}/api/contact`, {
       phone: newPhone,
       email: newEmail
     })

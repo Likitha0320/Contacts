@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: contact-backend
+    runtime: java
+    rootDir: backend/demo
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/demo-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: JAVA_VERSION
+        value: 17
+      - key: app.cors.allowed-origin
+        value: https://contact-frontend.onrender.com
+
+  - type: web
+    name: contact-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install; npm run build
+    staticPublishPath: build
+    envVars:
+      - key: REACT_APP_API_BASE_URL
+        value: https://contact-backend.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

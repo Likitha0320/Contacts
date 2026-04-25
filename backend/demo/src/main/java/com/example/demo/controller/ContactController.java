@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "${app.cors.allowed-origin:http://localhost:3000}")
 public class ContactController {
 
     @Autowired
